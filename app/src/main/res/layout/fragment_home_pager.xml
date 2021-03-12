@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_pager_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPageBg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+        android:id="@+id/home_pager_refresh"
+        app:tr_enable_overscroll="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.lcodecore.tkrefreshlayout.views.TbNestedScrollView
+            android:id="@+id/home_pager_nested_scroller"
+            android:layout_width="match_parent"
+            android:overScrollMode="never"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/home_pager_header_container"
+                    android:descendantFocusability="blocksDescendants"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--轮播图-->
+                    <com.ls.bannerview.banner.BannerView
+                        android:id="@+id/banner_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:dotSize="3dp"
+                        app:dotDistance="1dp"
+                        app:dotGravity="center"
+                        app:withProportion="8"
+                        app:heightProportion="5"
+                        app:bottomColor="@color/banner_bottom_bar_bg_day"
+                        app:dotIndicatorFocus="@color/dot_select_color"
+                        app:dotIndicatorNormal="@color/dot_unselect_color"/>
+
+
+                    <!--标题-->
+                    <include layout="@layout/include_home_pager_title_part"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/home_pager_content_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"/>
+
+            </LinearLayout>
+
+        </com.lcodecore.tkrefreshlayout.views.TbNestedScrollView>
+
+    </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+
+</LinearLayout>
